@@ -1,17 +1,23 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { useUser } from '../context/UserContext';
-import { FaHome, FaGraduationCap, FaQuestionCircle, FaChartLine, FaFire, FaTrophy, FaCoins, FaCheckCircle, FaSignOutAlt, FaUserShield, FaUser, FaComments, FaUsers } from 'react-icons/fa';
-import './Dashboard.css';
+import './Navbar.css';
 
-const Dashboard = () => {
+const Navbar = () => {
 
   return (
-    <div className="dashboard-container">
-        <h1 className="dashboard-title">Dashboard</h1>
+    <div className="navbar-container">
+        <div className="navbar-left">
+            <Link to="/" className="navbar-logo">WorkoutNYou</Link>
+            <Link to="/" className="navbar-link">Home</Link>{/*Link Dashboard*/}
+        </div>
+        <div className="navbar-right">
+            <Link to="/about" className="navbar-link">About</Link>
+            <Link to="/contact" className="navbar-link">Contact Us</Link>{/*Link Profile*/}
+            <Link to="/login" className="navbar-link">Login</Link>
+            <Link to="/signup" className="navbar-link">Sign Up</Link>
+        </div>
     </div>
   );
 };
 
-export default Dashboard;
+export default Navbar;

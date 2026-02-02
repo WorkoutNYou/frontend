@@ -1,0 +1,128 @@
+.dashboard-container {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.dashboard-title {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.dashboard-content {
+    font-size: 1.2rem;
+    color: #555;
+}
+
+.dashboard-panel {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.panel-title {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.panel-controls {
+    margin-top: 10px;
+}
+
+.panel-button {
+    padding: 8px 12px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.workout-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.workout-selection-title {
+    font-size: 1.5rem;
+    color: #333;
+    margin: 0;
+}
+
+.workout-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.workout-item {
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.workout-item:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+.workout-item.active {
+    border-color: #28a745;
+    background-color: #f0f8f0;
+    box-shadow: 0 4px 12px rgba(40, 167, 69, 0.2);
+}
+
+.workout-name {
+    font-size: 1.2rem;
+    color: #222;
+    margin: 0 0 8px 0;
+}
+
+.workout-desc {
+    font-size: 0.95rem;
+    color: #666;
+    margin: 0 0 12px 0;
+}
+
+.workout-meta {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+    font-size: 0.9rem;
+}
+
+.workout-distance {
+    color: #0066cc;
+    font-weight: 500;
+}
+
+.workout-time {
+    color: #cc6600;
+    font-weight: 500;
+}
+
+.workout-tags-row {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #eee;
+}
+
+.workout-tags {
+    color: #666;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.workout-tags {
+    margin-top: 10px;
+}

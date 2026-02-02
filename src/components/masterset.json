@@ -1,0 +1,60 @@
+{
+    "SetTemplate":{
+        "id": 0,
+        "name": "",
+        "desc": "",
+        "meta": {
+            "distance": "",
+            "time": "",
+            "tags": []
+        },
+        "structure": {
+            "rounds": [
+                {
+                    "repeat": 0,
+                    "interval": "",
+                    "segments": [
+                        {
+                            "id": 0,
+                            "name": "",
+                            "distance": 0,
+                            "pooltype": "SCY",
+                            "notes": "",
+                            "effort": "",
+                            "workoutNotes": ""
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "Set1":{
+        "id": 0,
+        "name": "",
+        "desc": "",
+        "meta": {
+            "distance": "",
+            "time": "",
+            "tags": []
+        },
+        "structure": {
+            "rounds": [
+                {
+                    "repeat": 0,
+                    "interval": "",
+                    "segments": [
+                        {
+                            "id": 0,
+                            "name": "",
+                            "distance": 0,
+                            "pooltype": "SCY",
+                            "notes": "",
+                            "effort": "",
+                            "workoutNotes": ""
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}
