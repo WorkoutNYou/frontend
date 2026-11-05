@@ -74,4 +74,17 @@
 //   );
 // };
 
-// export default NotFound;
+import React from 'react';
+import './NotFound.css';
+
+const NotFound = () => (
+  <div className="not-found-container">
+    <div className="not-found-content">
+      <h1>404</h1>
+      <p>Page not found.</p>
+    </div>
+  </div>
+);
+
+export default NotFound;
+

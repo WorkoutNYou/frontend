@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { createWorkout, updateWorkout } from '../api/workoutService';
 import './WorkoutEditor.css';
 
 const defaultPart = () => ({ id: Date.now(), name: '', notes: '', repetition: 1, distance: 0, timingMode: 'interval', interval: '', restTime: '', expectedTime: '' });
@@ -16,10 +17,6 @@ const WorkoutEditor = ({ initial = null, onSave }) => {
 
   function updateMeta(key, value) {
     setWorkout((w) => ({ ...w, meta: { ...w.meta, [key]: value } }));
-  }
-
-  function updateTopLevel(key, value) {
-    setWorkout((w) => ({ ...w, [key]: value }));
   }
 
   function addSet() {
@@ -73,10 +70,27 @@ const WorkoutEditor = ({ initial = null, onSave }) => {
     setWorkout((w) => ({ ...w, meta: { ...w.meta, tags: w.meta.tags.filter((t) => t !== tag) } }));
   }
 
-  function handleSave() {
-    const payload = { ...workout, id: workout.id ?? Date.now() };
-    if (onSave) onSave(payload);
-    else console.log('Saved workout', payload);
+  async function handleSave() {
+    const payload = { ...workout, id: workout.id ?? `${Date.now()}-${Math.random().toString(36).slice(2, 8)}` };
+    if (onSave) {
+      onSave(payload);
+      return;
+    }
+
+    try {
+      setSaving(true);
+      if (workout.id) {
+        await updateWorkout(payload.id, payload);
+      } else {
+        await createWorkout(payload);
+      }
+      alert('Workout saved successfully');
+      setWorkout(payload);
+    } catch (error) {
+      alert(`Unable to save workout: ${error.message}`);
+    } finally {
+      setSaving(false);
+    }
   }
 
   function handleCancel() {
@@ -85,6 +99,7 @@ const WorkoutEditor = ({ initial = null, onSave }) => {
   }
 
   const [tagInput, setTagInput] = useState('');
+  const [saving, setSaving] = useState(false);
 
   return (
     <div className="workout-editor-container">
@@ -194,8 +209,10 @@ const WorkoutEditor = ({ initial = null, onSave }) => {
           </div>
 
           <div className="form-actions">
-            <button className="btn primary" onClick={handleSave}>Save</button>
-            <button className="btn" onClick={handleCancel}>Cancel</button>
+            <button className="btn primary" onClick={handleSave} disabled={saving}>
+              {saving ? 'Saving…' : 'Save'}
+            </button>
+            <button className="btn" onClick={handleCancel} type="button">Cancel</button>
           </div>
         </div>
 
